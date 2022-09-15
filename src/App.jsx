@@ -1,5 +1,4 @@
 import * as React from 'react';
-import reactLogo from './assets/react.svg';
 
 function App() {
   const [monsters, setMonsters] = React.useState([]);
@@ -10,9 +9,8 @@ function App() {
   }
 
   async function getMonsters() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const data = await response.json();
-    return data;
+    const response = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5');
+    return await response.json();
   }
 
   React.useEffect(() => {
